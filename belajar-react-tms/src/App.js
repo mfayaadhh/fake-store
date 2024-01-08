@@ -1,22 +1,35 @@
-const user = {
-  name: 'Hedy Lamarr',
-  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
-  imageSize: 90,
-};
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Navbar from "./Navbar";
+import Home from "./components/pages/Home";
+import About from "./components/pages/About";
 
-export default function Profile() {
+export default function App() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setProducts(data);
+      });
+  }, []);
+
   return (
     <>
-      <h1>{user.name}</h1>
-      <img
-        className="avatar"
-        src={user.imageUrl}
-        alt={'Photo of ' + user.name}
-        style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }}
-      />
+      <Navbar />
+      <div className="container">
+        {products.map((product) => {
+          return (
+            <div>
+              <img key={product.id} src={product.image} alt={product.title} />
+              <p>{product.title}</p>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

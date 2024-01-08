@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 

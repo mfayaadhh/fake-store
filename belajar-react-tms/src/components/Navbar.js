@@ -1,18 +1,18 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <nav className="nav">
-      <a href="/" className="site-title">
+      <Link to="/" className="site-title">
         My Store
-      </a>
+      </Link>
+      <input className="searchbar" type="text" placeholder="Search.."></input>
       <ul>
         <li>
-          <a href="about">About</a>
+          <Link to="about">About</Link>
         </li>
         <li>
-          <a href="">About</a>
-        </li>
-        <li>
-          <a href="">About</a>
+          <Link to="help">Help</Link>
         </li>
       </ul>
     </nav>

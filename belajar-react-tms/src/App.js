@@ -1,35 +1,14 @@
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
+import Help from "./components/pages/Help";
 
 export default function App() {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setProducts(data);
-      });
-  }, []);
-
   return (
-    <>
-      <Navbar />
-      <div className="container">
-        {products.map((product) => {
-          return (
-            <div>
-              <img key={product.id} src={product.image} alt={product.title} />
-              <p>{product.title}</p>
-            </div>
-          );
-        })}
-      </div>
-    </>
+        <Routes>
+          <Route index element={<Home />}></Route>
+          <Route path="about" element={<About />}></Route>
+          <Route path="help" element={<Help />}></Route>
+        </Routes>
   );
 }

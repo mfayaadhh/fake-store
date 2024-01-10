@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Navbar from "../Navbar";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   const [products, setProducts] = useState([]);

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => {
@@ -18,22 +20,20 @@ export default function Home() {
     <>
       <Navbar />
       <div className="container">
-        <div className="sidebar">
-            <h3>Categories</h3>
-            <h4>Men's Clothing</h4>
-            <h4>Women's Clothing</h4>
-            <h4>Jewelery</h4>
-            <h4>Electronics</h4>
+        <div className="hero"></div>
+        <div className="categories-container">
+          <button>
+            <Link to={"men"}>Men's Clothing</Link>
+          </button>
+          <button>Women's Clothing</button>
+          <button>Jewelery</button>
+          <button>Electronics</button>
         </div>
         <div className="container-products">
           {products.map((product) => {
             return (
               <div>
-                  <img
-                    key={product.id}
-                    src={product.image}
-                    alt={product.title}
-                  />
+                <img key={product.id} src={product.image} alt={product.title} />
 
                 <p>{product.title}</p>
                 <p>${product.price}</p>

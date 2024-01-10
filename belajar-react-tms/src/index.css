@@ -20,6 +20,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav li {
@@ -27,34 +28,79 @@ body {
   display: inline-block;
 }
 
+.nav .searchbar {
+  margin: 20px;
+  padding: 5px;
+}
+
+.nav .button {
+  border: solid 2px white;
+  border-radius: 3px;
+  margin: 10px;
+  padding: 2px 10px;
+  transition: 0.2s;
+}
+.nav .button:hover {
+  background-color: white;
+  color: black;
+}
+
 .nav a {
   margin: 10px;
   text-decoration: none;
 }
 
-.nav a.site-title {
+.nav .site-title {
   font-size: 2rem;
   margin-right: auto;
 }
 
 .container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sidebar {
-  background-color: #5865f2;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
+.hero {
+ background-color: white;
+ display: flex;
+ justify-content: center;
+ width: 95%;
 }
-.sidebar h3{
-  margin-top: 20px;
+
+.hero img {
+  width: 300px;
+}
+
+.categories-container {
+  margin: 5px 0 0 0;
+  padding: 35px;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.categories-container button {
+  margin-top: 10px;
+  padding: 5px;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.categories-container button:hover {
+  background-color: black;
+  color: white;
+  transition: .2s;
+  cursor: pointer;
 }
 
 .container .container-products {
   padding: 10px;
   margin: 5px;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-wrap: wrap;
@@ -62,7 +108,7 @@ body {
   align-items: center;
 }
 
-.container .container-products div{
+.container .container-products div {
   height: 150px;
   width: 150px;
   padding: 10px;
@@ -87,10 +133,13 @@ body {
 
 .container .container-products div img {
   width: 50px;
-
 }
 
 .container .container-products div p {
   color: black;
   font-size: xx-small;
+}
+
+label {
+  font-size: smaller;
 }

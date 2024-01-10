@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 export default function Navbar() {
   return (
@@ -6,13 +7,32 @@ export default function Navbar() {
       <Link to="/" className="site-title">
         My Store
       </Link>
-      <input className="searchbar" type="text" placeholder="Search.."></input>
+      <Searchbar />
       <ul>
         <li>
-          <Link to="about">About</Link>
+          <Link className="button" to="cart">
+            Cart
+          </Link>
         </li>
         <li>
-          <Link to="help">Help</Link>
+          <Link className="button" to="Login">
+            Login
+          </Link>
+        </li>
+        <li>
+          <Link className="button" to="about">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link className="button" to="contact">
+            Contact
+          </Link>
+        </li>
+        <li>
+          <Link className="button" to="help">
+            Help
+          </Link>
         </li>
       </ul>
     </nav>

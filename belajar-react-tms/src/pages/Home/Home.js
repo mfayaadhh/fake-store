@@ -1,40 +1,52 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState();
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setProducts(data);
-      });
-  }, []);
+    if (category) {
+      fetch(`https://fakestoreapi.com/products/category/${category}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setProducts(data);
+        });
+    } else {
+      fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((data) => {
+          setProducts(data);
+        });
+    }
+  }, [category]);
+
+  const handleClick = (cat) => {
+    setCategory(cat);
+  };
 
   return (
     <>
       <Navbar />
       <div className="container">
-        <div className="hero"></div>
         <div className="categories-container">
-          <button>
-            <Link to={"men"}>Men's Clothing</Link>
+          <button onClick={() => setCategory(null)}>All</button>
+          <button onClick={() => handleClick("men's clothing")}>
+            Men's Clothing
           </button>
-          <button>Women's Clothing</button>
-          <button>Jewelery</button>
-          <button>Electronics</button>
+          <button onClick={() => handleClick("women's clothing")}>
+            Women's Clothing
+          </button>
+          <button onClick={() => handleClick("jewelery")}>Jewelery</button>
+          <button onClick={() => handleClick("electronics")}>
+            Electronics
+          </button>
         </div>
         <div className="container-products">
           {products.map((product) => {
             return (
-              <div>
-                <img key={product.id} src={product.image} alt={product.title} />
-
+              <div key={product.id}>
+                <img src={product.image} alt={product.title} />
                 <p>{product.title}</p>
                 <p>${product.price}</p>
               </div>

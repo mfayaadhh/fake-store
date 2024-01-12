@@ -1,37 +1,40 @@
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
+import { FaShoppingCart, FaInfo, FaStore } from "react-icons/fa";
+import { RiLoginBoxFill, RiContactsBook2Fill } from "react-icons/ri";
+import { IoIosHelpCircle } from "react-icons/io";
 
 export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        My Store
+        <FaStore />   My Store
       </Link>
       <Searchbar />
       <ul>
         <li>
           <Link className="button" to="cart">
-            Cart
+            <FaShoppingCart />   Cart
           </Link>
         </li>
         <li>
           <Link className="button" to="Login">
-            Login
+            <RiLoginBoxFill />   Login
           </Link>
         </li>
         <li>
           <Link className="button" to="about">
-            About
+            <FaInfo />   About
           </Link>
         </li>
         <li>
           <Link className="button" to="contact">
-            Contact
+            <RiContactsBook2Fill />   Contact
           </Link>
         </li>
         <li>
           <Link className="button" to="help">
-            Help
+            <IoIosHelpCircle />   Help
           </Link>
         </li>
       </ul>

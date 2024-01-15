@@ -1,42 +1,26 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import CategoriesContainer from "../../components/CategoriesContainer";
 
 export default function ContentContainer() {
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState();
 
   useEffect(() => {
-    if (category) {
-      fetch(`https://fakestoreapi.com/products/category/${category}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setProducts(data);
-        });
-    } else {
-      fetch("https://fakestoreapi.com/products")
-        .then((res) => res.json())
-        .then((data) => {
-          setProducts(data);
-        });
-    }
-  }, [category]);
-  const handleClick = (cat) => {
-    setCategory(cat);
-  };
+    fetch(`https://fakestoreapi.com/products`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  });
 
   return (
     <div className="container">
-      <div className="categories-container">
-        <button onClick={() => setCategory(null)}>All</button>
-        <button onClick={() => handleClick("men's clothing")}>
-          Men's Clothing
-        </button>
-        <button onClick={() => handleClick("women's clothing")}>
-          Women's Clothing
-        </button>
-        <button onClick={() => handleClick("jewelery")}>Jewelery</button>
-        <button onClick={() => handleClick("electronics")}>Electronics</button>
+      <div className="hero-image">
+        <div className="hero-text">
+          <h1>This is Hero</h1>
+        </div>
       </div>
+      <CategoriesContainer/>
       <div className="container-products">
         {products.map((product) => {
           return (

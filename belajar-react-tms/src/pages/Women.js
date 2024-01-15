@@ -1,19 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import CategoriesContainer from "./CategoriesContainer";
+import CategoriesContainer from "../components/CategoriesContainer";
+import Navbar from "../components/Navbar";
 
-export default function ContentContainer() {
+export default function Women() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products`)
+    fetch("https://fakestoreapi.com/products/category/women's clothing")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
   });
-
   return (
     <>
       <Navbar />

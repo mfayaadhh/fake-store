@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import CategoriesContainer from "./CategoriesContainer";
+import ContainerProducts from "./ContainerProducts";
 
 export default function ContentContainer() {
   const [products, setProducts] = useState([]);
@@ -10,8 +11,9 @@ export default function ContentContainer() {
     fetch(`https://fakestoreapi.com/products`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setProducts(data);
-      });
+      }, []);
   });
 
   return (
@@ -24,17 +26,7 @@ export default function ContentContainer() {
           </div>
         </div>
         <CategoriesContainer />
-        <div className="container-products">
-          {products.map((product) => {
-            return (
-              <div key={product.id}>
-                <img src={product.image} alt={product.title} />
-                <p>{product.title}</p>
-                <p>${product.price}</p>
-              </div>
-            );
-          })}
-        </div>
+        <ContainerProducts products={products} />
       </div>
     </>
   );

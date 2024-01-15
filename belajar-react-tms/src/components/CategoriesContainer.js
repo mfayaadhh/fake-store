@@ -1,23 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function CategoriesContainer() {
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/categories`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCategory(data);
+      }, []);
+  });
   return (
     <div className="categories-container">
-      <Link to="/category">
-        <button>All</button>
-      </Link>
-      <Link to="/category/men's_clothing">
-        <button>Men's Clothing</button>
-      </Link>
-      <Link to="/category/women's_clothing">
-        <button>Women's Clothing</button>
-      </Link>
-      <Link to="/category/jewelery">
-        <button>Jewelery</button>
-      </Link>
-      <Link to="/category/electronics">
-        <button>Electronics</button>
+      <Link to={`/category/${category}`}>
+        {category.map((cat) => {
+          <button>{cat}</button>;
+        })}
       </Link>
     </div>
   );

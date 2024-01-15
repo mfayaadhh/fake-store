@@ -11,15 +11,19 @@ export default function CategoriesContainer() {
       .then((data) => {
         console.log(data);
         setCategory(data);
-      }, []);
-  });
+      });
+  }, []);
+
   return (
     <div className="categories-container">
-      <Link to={`/category/${category}`}>
-        {category.map((cat) => {
-          <button>{cat}</button>;
-        })}
+      <Link to={`/category`}>
+        <button>All</button>
       </Link>
+      {category.map((cat) => (
+        <Link to={`/category/${cat}`} key={cat}>
+          <button>{cat.toUpperCase()}</button>
+        </Link>
+      ))}
     </div>
   );
 }

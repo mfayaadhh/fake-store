@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import CategoriesContainer from "./CategoriesContainer";
 import ContainerProducts from "./ContainerProducts";
+import Hero from "./Hero";
 
 export default function ContentContainer() {
   const [products, setProducts] = useState([]);
@@ -13,18 +14,14 @@ export default function ContentContainer() {
       .then((data) => {
         console.log(data);
         setProducts(data);
-      }, []);
-  });
+      });
+  }, []);
 
   return (
     <>
       <Navbar />
       <div className="container">
-        <div className="hero-image">
-          <div className="hero-text">
-            <h1>This is Hero</h1>
-          </div>
-        </div>
+        <Hero />
         <CategoriesContainer />
         <ContainerProducts products={products} />
       </div>

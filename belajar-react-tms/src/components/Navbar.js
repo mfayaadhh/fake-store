@@ -8,33 +8,33 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        <FaStore />      Fake Store
+        <FaStore /> Fake Store
       </Link>
       <Searchbar />
       <ul>
         <li>
-          <Link className="button" to="cart">
-            <FaShoppingCart />   Cart
+          <Link className="button" to="/cart">
+            <FaShoppingCart />
           </Link>
         </li>
         <li>
-          <Link className="button" to="Login">
-            <RiLoginBoxFill />   Login
+          <Link className="button" to="/login">
+            <RiLoginBoxFill /> Login
           </Link>
         </li>
         <li>
-          <Link className="button" to="about">
-            <FaInfo />   About
+          <Link className="button" to="/about">
+            <FaInfo /> About
           </Link>
         </li>
         <li>
-          <Link className="button" to="contact">
-            <RiContactsBook2Fill />   Contact
+          <Link className="button" to="/contact">
+            <RiContactsBook2Fill /> Contact
           </Link>
         </li>
         <li>
-          <Link className="button" to="help">
-            <IoIosHelpCircle />   Help
+          <Link className="button" to="/help">
+            <IoIosHelpCircle /> Help
           </Link>
         </li>
       </ul>

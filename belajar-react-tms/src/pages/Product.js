@@ -24,10 +24,11 @@ export default function Product() {
           <img src={products.image} alt={products.title} />
         </div>
         <div className="product-sidebar">
-            <h1>{products.title}</h1>
-            <h2>${products.price}</h2>
-            <p>{products.description}</p>
-            <button>Add to Cart</button>
+          <h1>{products.title}</h1>
+          <h2>${products.price}</h2>
+          <p>{products.description}</p>
+
+          <button>Add to Cart</button>
         </div>
       </div>
     </>

@@ -15,13 +15,13 @@ export default function CategoriesContainer() {
   }, []);
 
   return (
-    <div className="categories-container">
-      <Link to={`/category`}>
-        <button>All</button>
+    <div className="flex flex-wrap justify-center p-4 bg-blue-500">
+      <Link to={`/category`} className="m-2">
+        <button className="px-4 py-2 font-bold text-white bg-blue-700 rounded hover:bg-blue-600">All</button>
       </Link>
       {category.map((cat) => (
-        <Link to={`/category/${cat}`} key={cat}>
-          <button>{cat.toUpperCase()}</button>
+        <Link to={`/category/${cat}`} key={cat} className="m-2">
+          <button className="px-4 py-2 font-bold text-white bg-blue-700 rounded hover:bg-blue-600">{cat.toUpperCase()}</button>
         </Link>
       ))}
     </div>

@@ -14,7 +14,7 @@ export default function Navbar() {
       <ul className="flex items-center space-x-4">
         <li>
           <Link className="text-white hover:text-blue-300" to="/cart">
-            <FaShoppingCart className="inline-block mr-1" /> Cart
+            <FaShoppingCart className="inline-block mr-1 " /> Cart
           </Link>
         </li>
         <li>

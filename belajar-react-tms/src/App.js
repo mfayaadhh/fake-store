@@ -12,11 +12,28 @@ import { useState } from "react";
 
 export default function App() {
   const [cart, setCart] = useState([]);
+  
   function addToCart(p) {
+    // Update cart item quantity if already in cart
+    if (cart.some((cartItem) => cartItem.id === p.id)) {
+      setCart((cart) =>
+        cart.map((cartItem) =>
+          cartItem.id === p.id
+            ? {
+                ...cartItem,
+                amount: cartItem.amount + 1,
+              }
+            : cartItem
+        )
+      );
+      console.log(cart);
+      return;
+    }
     setCart((cart) => [
       ...cart,
-      { ...p, amount: 1 } // <-- initial amount 1
-    ])
+      { ...p, amount: 1 }, // <-- initial amount 1
+    ]);
+    console.log(cart);
   }
 
   return (
@@ -27,11 +44,14 @@ export default function App() {
         path="/category"
         element={<Category addToCart={addToCart} />}
       ></Route>
-      <Route path="/category/:name" element={<Routing />}></Route>
+      <Route path="/category/:name" element={<Routing addToCart={addToCart}/>}></Route>
       <Route path="/about" element={<About />}></Route>
       <Route path="/help" element={<Help />}></Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/cart" element={<Cart cart={cart}/>}></Route>
+      <Route
+        path="/cart"
+        element={<Cart cart={cart} setCart={setCart} />}
+      ></Route>
       <Route path="/contact" element={<Contact />}></Route>
       <Route path="/help" element={<Help />}></Route>
     </Routes>

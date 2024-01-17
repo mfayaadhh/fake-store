@@ -6,7 +6,7 @@ import CategoriesContainer from "../components/CategoriesContainer";
 import ContainerProducts from "../components/ContainerProducts";
 import Hero from "../components/Hero";
 
-export default function Routing() {
+export default function Routing({addToCart}) {
   const { name } = useParams();
   const [products, setProducts] = useState([]);
 
@@ -25,7 +25,7 @@ export default function Routing() {
       <div className="container">
         <Hero/>
         <CategoriesContainer />
-        <ContainerProducts products={products} />
+        <ContainerProducts addToCart={addToCart} products={products} />
       </div>
     </>
   );

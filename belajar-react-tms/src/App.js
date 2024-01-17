@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import React, { useState, createContext } from "react";
+import React from "react";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import About from "./pages/About";
@@ -9,33 +9,11 @@ import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Routing from "./pages/Routing";
 import Product from "./pages/Product";
-
-export const CartContext = createContext();
+import CartProvider from "./components/CartContext";
 
 export default function App() {
-  const [cart, setCart] = useState([]);
-  
-  function addToCart(p) {
-    if (cart.some((cartItem) => cartItem.id === p.id)) {
-      setCart((cart) =>
-        cart.map((cartItem) =>
-          cartItem.id === p.id
-            ? {
-                ...cartItem,
-                amount: cartItem.amount + 1,
-              }
-            : cartItem
-        )
-      );
-      console.log(cart);
-      return;
-    }
-    setCart((cart) => [...cart, { ...p, amount: 1 }]);
-    console.log(cart);
-  }
-
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart }}>
+    <CartProvider>
       <Routes>
         <Route index element={<Home />}></Route>
         <Route path="/products/:id" element={<Product />}></Route>
@@ -48,6 +26,6 @@ export default function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/help" element={<Help />}></Route>
       </Routes>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }

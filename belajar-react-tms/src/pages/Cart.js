@@ -1,14 +1,12 @@
-import { CartContext } from "../App"
-import { useContext } from "react"
 import Navbar from "../components/Navbar";
+import { useCart } from "../components/CartContext";
 
 export default function Cart() {
-    const {cart, setCart} = useContext(CartContext)
-    let subtotal = 0;
-    cart.forEach((item) => {
-      return (subtotal += item.amount * item.price);
-    });
-  
+  const {cart, setCart} = useCart();
+  let subtotal = 0;
+  cart.forEach((item) => {
+    return (subtotal += item.amount * item.price);
+  });
 
   function removeItem(p) {
     let arr = cart.filter((item) => item.id !== p.id);

@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import React, { useState, createContext } from "react";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import About from "./pages/About";
@@ -9,19 +10,44 @@ import Contact from "./pages/Contact";
 import Routing from "./pages/Routing";
 import Product from "./pages/Product";
 
+export const CartContext = createContext();
+
 export default function App() {
+  const [cart, setCart] = useState([]);
+  
+  function addToCart(p) {
+    if (cart.some((cartItem) => cartItem.id === p.id)) {
+      setCart((cart) =>
+        cart.map((cartItem) =>
+          cartItem.id === p.id
+            ? {
+                ...cartItem,
+                amount: cartItem.amount + 1,
+              }
+            : cartItem
+        )
+      );
+      console.log(cart);
+      return;
+    }
+    setCart((cart) => [...cart, { ...p, amount: 1 }]);
+    console.log(cart);
+  }
+
   return (
-    <Routes>
-      <Route index element={<Home />}></Route>
-      <Route path="/products/:id" element={<Product />}></Route>
-      <Route path="/category" element={<Category />}></Route>
-      <Route path="/category/:name" element={<Routing />}></Route>
-      <Route path="/about" element={<About />}></Route>
-      <Route path="/help" element={<Help />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/cart" element={<Cart />}></Route>
-      <Route path="/contact" element={<Contact />}></Route>
-      <Route path="/help" element={<Help />}></Route>
-    </Routes>
+    <CartContext.Provider value={{ cart, setCart, addToCart }}>
+      <Routes>
+        <Route index element={<Home />}></Route>
+        <Route path="/products/:id" element={<Product />}></Route>
+        <Route path="/category" element={<Category />}></Route>
+        <Route path="/category/:name" element={<Routing />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/help" element={<Help />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/help" element={<Help />}></Route>
+      </Routes>
+    </CartContext.Provider>
   );
 }

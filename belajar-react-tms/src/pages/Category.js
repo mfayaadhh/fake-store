@@ -1,9 +1,9 @@
 import ContentContainer from "../components/ContentContainer";
 
-export default function Category() {
+export default function Category({addToCart}) {
   return (
     <>
-      <ContentContainer />
+      <ContentContainer addToCart={addToCart}/>
     </>
   );
 }

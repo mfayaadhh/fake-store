@@ -5,7 +5,7 @@ import CategoriesContainer from "./CategoriesContainer";
 import ContainerProducts from "./ContainerProducts";
 import Hero from "./Hero";
 
-export default function ContentContainer() {
+export default function ContentContainer({ addToCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function ContentContainer() {
       <div className="container">
         <Hero />
         <CategoriesContainer />
-        <ContainerProducts products={products} />
+        <ContainerProducts addToCart={addToCart} products={products} />
       </div>
     </>
   );

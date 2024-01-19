@@ -6,28 +6,28 @@ import { IoIosHelpCircle } from "react-icons/io";
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-row items-center justify-between p-6 bg-blue-500 shadow-md flex-wrap">
+    <nav className="flex flex-col sm:flex-row items-center justify-between p-6 bg-blue-500 shadow-md flex-wrap">
       <Link to="/" className="text-white text-2xl font-bold">
-        <FaStore className="inline-block mr-2" /> Fake Store
+        <FaStore className="inline-block mr-2 mb-2" /> Fake Store
       </Link>
       <Searchbar />
-      <ul className="flex items-center space-x-4 flex-wrap">
-        <li>
+      <ul className="flex flex-col sm:flex-row space-x-4 sm:items-center">
+        <li className="mb-1 sm:mb-0 self-center">
           <Link className="text-white hover:text-blue-300" to="/cart">
             <FaShoppingCart className="inline-block mr-1" /> Cart
           </Link>
         </li>
-        <li>
+        <li className="mb-1 sm:mb-0">
           <Link className="text-white hover:text-blue-300" to="/login">
             <RiLoginBoxFill className="inline-block mr-1" /> Login
           </Link>
         </li>
-        <li>
+        <li className="mb-1 sm:mb-0">
           <Link className="text-white hover:text-blue-300" to="/about">
             <FaInfo className="inline-block mr-1" /> About
           </Link>
         </li>
-        <li>
+        <li className="mb-1 sm:mb-0">
           <Link className="text-white hover:text-blue-300" to="/contact">
             <RiContactsBook2Fill className="inline-block mr-1" /> Contact
           </Link>

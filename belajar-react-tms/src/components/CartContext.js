@@ -9,6 +9,7 @@ export function useCart() {
 
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  
 
   function addToCart(p) {
     if (cart.some((cartItem) => cartItem.id === p.id)) {
@@ -22,11 +23,9 @@ export default function CartProvider({ children }) {
             : cartItem
         )
       );
-      console.log(cart);
       return;
     }
     setCart((cart) => [...cart, { ...p, amount: 1 }]);
-    console.log(cart);
   }
   return (
     <CartContext.Provider value={{ cart, setCart, addToCart }}>

@@ -5,7 +5,7 @@ export default function Cart() {
   const {cart, setCart} = useCart();
   let subtotal = 0;
   cart.forEach((item) => {
-    return (subtotal += item.amount * item.price);
+    return (subtotal += (item.amount * item.price));
   });
 
   function removeItem(p) {
@@ -15,7 +15,7 @@ export default function Cart() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center items-center">
         <div className="mr-5">
           {cart.map((item) => {
             return (
@@ -44,9 +44,9 @@ export default function Cart() {
             );
           })}
         </div>
-        <div>
+        <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold">Subtotal</h2>
-          <p className="text-lg font-semibold">${subtotal}</p>
+          <p className="text-lg font-semibold">${subtotal.toFixed(2)}</p>
         </div>
       </div>
     </>

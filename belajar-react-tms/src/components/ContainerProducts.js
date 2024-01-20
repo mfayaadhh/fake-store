@@ -4,12 +4,13 @@ import CartBtn from "./CartBtn";
 
 export default function ContainerProducts({ products }) {
   return (
-    <div className="grid grid-cols-4 gap-4 p-4">
+    <div className="flex flex-wrap justify-center p-4">
       {products.map((product) => {
         return (
           <div
-            className="flex flex-col justify-end items-center p-4 bg-white rounded shadow-lg h-full"
+            className="flex flex-col justify-end items-center m-4 bg-white rounded shadow-lg h-full p-1"
             key={product.id}
+            style={{ flex: "1 0 21%", maxWidth: "21%" }}
           >
             <Link to={`/products/${product.id}`} className="group">
               <img

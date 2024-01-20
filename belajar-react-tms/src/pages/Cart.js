@@ -1,8 +1,8 @@
 import Navbar from "../components/Navbar";
-import { useCart } from "../components/CartContext";
+import { useCartContext } from "../hooks/useCartContext";
 
 export default function Cart() {
-  const {cart, setCart} = useCart();
+  const {cart, setCart} = useCartContext();
   let subtotal = 0;
   cart.forEach((item) => {
     return (subtotal += (item.amount * item.price));
@@ -12,6 +12,18 @@ export default function Cart() {
     let arr = cart.filter((item) => item.id !== p.id);
     setCart(arr);
   }
+
+  if (cart.length === 0) {
+    return (
+      <>
+        <Navbar />
+        <div className="flex flex-row justify-center items-center">
+          <h2>Your cart is empty</h2>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <Navbar />
@@ -32,7 +44,7 @@ export default function Cart() {
                     {item.title}
                   </p>
                   <p className="text-lg">Quantity {item.amount}</p>
-                  <p className="text-lg">${item.price * item.amount}</p>
+                  <p className="text-lg">${(item.price * item.amount).toFixed(2)}</p>
                   <button
                     onClick={() => removeItem(item)}
                     className="px-4 py-2 self-start font-bold text-white bg-red-500 rounded hover:bg-red-600 active:scale-90"

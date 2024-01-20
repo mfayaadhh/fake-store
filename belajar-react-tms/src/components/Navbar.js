@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import { FaShoppingCart, FaInfo, FaStore } from "react-icons/fa";
@@ -6,33 +7,33 @@ import { IoIosHelpCircle } from "react-icons/io";
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-col sm:flex-row items-center justify-between p-6 bg-blue-500 shadow-md flex-wrap">
-      <Link to="/" className="text-white text-2xl font-bold">
+    <nav className="flex flex-col md:flex-row items-center justify-between p-6 bg-blue-500 shadow-md flex-wrap">
+      <Link to="/" className="text-white text-2xl font-bold mb-4 md:mb-0">
         <FaStore className="inline-block mr-2 mb-2" /> Fake Store
       </Link>
       <Searchbar />
-      <ul className="flex flex-col sm:flex-row space-x-4 sm:items-center">
-        <li className="mb-1 sm:mb-0 self-center">
+      <ul className="flex flex-col md:flex-row space-x-0 md:space-x-4 sm:items-center">
+        <li className="mb-1 md:mb-0 self-center">
           <Link className="text-white hover:text-blue-300" to="/cart">
             <FaShoppingCart className="inline-block mr-1" /> Cart
           </Link>
         </li>
-        <li className="mb-1 sm:mb-0">
+        <li className="mb-1 md:mb-0">
           <Link className="text-white hover:text-blue-300" to="/login">
             <RiLoginBoxFill className="inline-block mr-1" /> Login
           </Link>
         </li>
-        <li className="mb-1 sm:mb-0">
+        <li className="mb-1 md:mb-0">
           <Link className="text-white hover:text-blue-300" to="/about">
             <FaInfo className="inline-block mr-1" /> About
           </Link>
         </li>
-        <li className="mb-1 sm:mb-0">
+        <li className="mb-1 md:mb-0">
           <Link className="text-white hover:text-blue-300" to="/contact">
             <RiContactsBook2Fill className="inline-block mr-1" /> Contact
           </Link>
         </li>
-        <li>
+        <li className="mb-1 md:mb-0">
           <Link className="text-white hover:text-blue-300" to="/help">
             <IoIosHelpCircle className="inline-block mr-1" /> Help
           </Link>

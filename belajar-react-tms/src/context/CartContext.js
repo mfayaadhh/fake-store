@@ -1,15 +1,9 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
-export function useCart() {
-  const { cart, setCart, addToCart } = useContext(CartContext);
-  return { cart, setCart, addToCart };
-}
-
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  
 
   function addToCart(p) {
     if (cart.some((cartItem) => cartItem.id === p.id)) {

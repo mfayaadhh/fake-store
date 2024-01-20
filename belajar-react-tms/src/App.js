@@ -9,11 +9,9 @@ import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Routing from "./pages/Routing";
 import Product from "./pages/Product";
-import CartProvider from "./components/CartContext";
 
 export default function App() {
   return (
-    <CartProvider>
       <Routes>
         <Route index element={<Home />}></Route>
         <Route path="/products/:id" element={<Product />}></Route>
@@ -26,6 +24,5 @@ export default function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/help" element={<Help />}></Route>
       </Routes>
-    </CartProvider>
   );
 }

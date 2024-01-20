@@ -17,11 +17,15 @@ export default function Hero() {
   }, [currentImageIndex, images.length]);
 
   return (
-    <div
-      className="bg-cover bg-center h-screen flex items-center justify-center"
-      style={{ backgroundImage: `url(${images[currentImageIndex]})`, backgroundSize: 'cover' }}
-    >
-      <div className="text-white text-center">
+    <div className="relative h-screen flex items-center justify-center mt-28">
+      {images.map((image, index) => (
+        <div
+          key={image}
+          className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`}
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      ))}
+      <div className="relative text-white text-center">
         <h1 className="text-6xl mb-4">Welcome to Fake Store</h1>
       </div>
     </div>

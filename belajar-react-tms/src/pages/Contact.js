@@ -3,8 +3,9 @@ import Navbar from "../components/Navbar";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gray-200">
-      <Navbar />
+    <>
+    <Navbar />
+    <div className="min-h-screen bg-gray-200 md:mt-20 mt-48">
       <div className="flex items-center justify-center h-full">
         <div className="p-10 bg-white rounded-lg shadow-md w-96 text-center">
           <h2 className="mb-5 text-3xl font-semibold">Contact Us</h2>
@@ -30,12 +31,13 @@ export default function Contact() {
               className="w-full mb-4 p-2 h-32 border border-gray-400 rounded outline-none"
               placeholder="Your Message"
             ></textarea>
-            <button className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
+            <button type="submit" className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
               Submit
             </button>
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 }

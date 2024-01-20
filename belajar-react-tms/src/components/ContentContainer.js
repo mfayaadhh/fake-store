@@ -20,11 +20,9 @@ export default function ContentContainer() {
   return (
     <>
       <Navbar />
-      <div className="container">
         <Hero />
         <CategoriesContainer />
         <ContainerProducts products={products} />
-      </div>
     </>
   );
 }

@@ -5,7 +5,7 @@ export default function About() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center h-screen bg-gray-200">
+      <div className="flex flex-col items-center h-screen bg-gray-200 md:mt-20 mt-48">
         <div className="p-10 bg-white rounded-lg shadow-md w-96 text-center">
           <h2 className="mb-5 text-3xl font-semibold">About Fake Store</h2>
           <p className="text-gray-700 mb-4">

@@ -8,9 +8,8 @@ export default function ContainerProducts({ products }) {
       {products.map((product) => {
         return (
           <div
-            className="flex flex-col justify-end items-center m-4 bg-white rounded shadow-lg h-full p-1"
+            className="flex flex-col justify-end items-center m-4 bg-white rounded shadow-lg h-full p-1 md:w-1/4 sm:w-1/2 w-full"
             key={product.id}
-            style={{ flex: "1 0 21%", maxWidth: "21%" }}
           >
             <Link to={`/products/${product.id}`} className="group">
               <img

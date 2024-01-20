@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
+import CartBtn from "../components/CartBtn";
 
 export default function Product() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ export default function Product() {
   return (
     <>
       <Navbar />
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center md:mt-24 mt-48">
         <div className="w-1/2 pt-10">
           <img
             className="w-full h-64 object-contain rounded-lg"
@@ -34,9 +35,7 @@ export default function Product() {
           </h2>
           <p className="text-gray-700 mb-4">{products.description}</p>
 
-          <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-600">
-            Add to Cart
-          </button>
+          <CartBtn product={products}/>
         </div>
       </div>
     </>

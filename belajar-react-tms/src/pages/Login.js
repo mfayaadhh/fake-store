@@ -8,7 +8,7 @@ export default function Login() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    // Handle login logic here
+
     console.log("Username: ", username);
     console.log("Password: ", password);
   };
@@ -16,7 +16,7 @@ export default function Login() {
   return (
     <>
       <Navbar />
-      <div className="flex align-baseline justify-center h-screen bg-gray-200">
+      <div className="flex align-baseline justify-center h-screen bg-gray-200 md:mt-20 mt-48">
         <form
           className="p-10 bg-white rounded-lg shadow-md w-96"
           onSubmit={handleLogin}

@@ -22,11 +22,9 @@ export default function Routing() {
   return (
     <>
       <Navbar />
-      <div className="container">
         <Hero/>
         <CategoriesContainer />
         <ContainerProducts products={products} />
-      </div>
     </>
   );
 }

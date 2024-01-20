@@ -17,7 +17,7 @@ export default function Hero() {
   }, [currentImageIndex, images.length]);
 
   return (
-    <div className="relative h-screen flex items-center justify-center mt-28">
+    <div className="relative h-screen flex items-center justify-center ">
       {images.map((image, index) => (
         <div
           key={image}

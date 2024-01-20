@@ -62,7 +62,7 @@ export default function Navbar() {
         </li>
         <li className="mb-1 md:mb-0">
           <Link className="text-white hover:text-blue-300" to="/help">
-            <IoIosHelpCircle className="inline-block mr-1" /> Help
+            <IoIosHelpCircle className="inline-block" /> Help
           </Link>
         </li>
       </ul>

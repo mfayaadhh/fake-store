@@ -8,12 +8,12 @@ export default function ContainerProducts({ products }) {
       {products.map((product) => {
         return (
           <div
-            className="flex flex-col justify-end items-center m-4 bg-white rounded shadow-lg h-full p-1 md:w-1/4 sm:w-1/2 w-full"
+            className="flex flex-col justify-end items-center m-4 bg-white rounded shadow-lg h-full p-2 md:w-1/4 sm:w-1/2 w-full"
             key={product.id}
           >
             <Link to={`/products/${product.id}`} className="group">
               <img
-                className="mr-auto ml-auto w-32 h-32 transition duration-500 ease-in-out transform group-hover:scale-105"
+                className="mr-auto ml-auto w-auto max-h-32 transition duration-500 ease-in-out transform group-hover:scale-105"
                 src={product.image}
                 alt={product.title}
               />

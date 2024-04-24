@@ -1,9 +1,11 @@
 import Navbar from "../components/Navbar";
-import { useCartContext } from "../hooks/useCartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { increaseQuantity, decreaseQuantity, removeItem } from "../redux/cartSlice";
 
 export default function Cart() {
-  const { cart, removeItem, increaseQuantity, decreaseQuantity } =
-    useCartContext();
+  const cart = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
+
   let subtotal = 0;
   cart.forEach((item) => {
     return (subtotal += item.amount * item.price);
@@ -44,7 +46,7 @@ export default function Cart() {
                   </p>
                   <div className="flex flex-row items-center border-2 max-w-52 border-gray-300 p-2 rounded-md shadow-md bg-white">
                     <button
-                      onClick={() => decreaseQuantity(item)}
+                      onClick={() => dispatch(decreaseQuantity(item))}
                       className="px-4 py-2 text-sm self-start font-bold text-white bg-red-500 rounded hover:bg-red-600 active:scale-90"
                     >
                       -
@@ -53,7 +55,7 @@ export default function Cart() {
                       Quantity {item.amount}
                     </p>
                     <button
-                      onClick={() => increaseQuantity(item)}
+                      onClick={() => dispatch(increaseQuantity(item))}
                       className="px-4 py-2 text-sm font-bold text-white bg-green-500 rounded hover:bg-green-600 active:scale-90"
                     >
                       +
@@ -64,7 +66,7 @@ export default function Cart() {
                     ${(item.price * item.amount).toFixed(2)}
                   </p>
                   <button
-                    onClick={() => removeItem(item)}
+                    onClick={() => dispatch(removeItem(item))}
                     className="px-4 py-2 self-start font-bold text-white bg-red-500 rounded hover:bg-red-600 active:scale-90"
                   >
                     Remove

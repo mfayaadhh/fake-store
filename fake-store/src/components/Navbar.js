@@ -8,11 +8,11 @@ import {
   IoMdArrowDropdown,
   IoMdArrowDropup,
 } from "react-icons/io";
-import { useCartContext } from "../hooks/useCartContext";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
-  const { itemCount } = useCartContext();
   const [isOpen, setIsOpen] = useState(false);
+  const itemCount = useSelector((state) => state.cart.itemCount)
 
   return (
     <nav className="fixed top-0 left-0 right-0 flex flex-col md:flex-row items-center justify-between p-4 lg:p-6 bg-blue-500 shadow-md flex-wrap z-10">
